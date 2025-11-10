@@ -74,7 +74,7 @@
       <v-container>
 
         <v-card class="mb-5">
-            <v-breadcrumbs  class="font-weight-" :items="['Foo', 'Bar', 'Fizz']"></v-breadcrumbs>
+            <v-breadcrumbs  class="font-weight-medium" :items="['Foo', 'Bar', 'Fizz']"></v-breadcrumbs>
         </v-card>
 
         <v-card>
@@ -83,48 +83,49 @@
           <v-form v-model="valid">
             <v-container>
               <v-row>
-                <v-col cols="12" md>
+                <v-col cols="12" md="3">
                   <v-select
-                    :items="['SelectsA', 'SelectsB', 'SelectsC']"
+                    :items="['雞', '鴨', '魚']"
                     placeholder="請選擇">
                     <template #prepend-inner>
-                      <span class="prepend-inner">Selects：</span>
+                      <span class="prepend-inner">種類：</span>
                     </template>
                   </v-select>
                 </v-col>
 
-                <v-col cols="12" md>
-                  <v-combobox
-                    :items="['ComboA', 'ComboB', 'ComboC']"
+                <v-col cols="12" md="3">
+                  <v-select
+                    :items="['雞', '鴨', '魚']"
                     placeholder="請選擇">
                     <template #prepend-inner>
-                      <span class="prepend-inner">Combobox：</span>
+                      <span class="prepend-inner">品項名稱：</span>
                     </template>
-                  </v-combobox>
+                  </v-select>
                 </v-col>
 
-                <v-col cols="12" md>
-                  <v-autocomplete
-                    :items="['AutoA', 'AutoB', 'AutoC']"
+                <v-col cols="12" md="3">
+                  <v-select
+                    :items="['雞', '鴨', '魚']"
                     placeholder="請選擇">
                     <template #prepend-inner>
-                      <span class="prepend-inner">AutoCompletes：</span>
+                      <span class="prepend-inner">品種：</span>
                     </template>
-                  </v-autocomplete>
+                  </v-select>
                 </v-col>
 
-                <v-col cols="12" md>
-                  <v-text-field
-                    placeholder="請輸入">
+                <v-col cols="12" md="3">
+                  <v-select
+                    :items="['公', '母']"
+                    placeholder="請選擇">
                     <template #prepend-inner>
-                      <span class="prepend-inner">Text fields：</span>
+                      <span class="prepend-inner">性別：</span>
                     </template>
-                  </v-text-field>
+                  </v-select>
                 </v-col>
               </v-row>
 
               <v-row>
-                <v-col cols="12" md class="menu-row">
+                <v-col cols="12" md="3">
                   <v-menu
                     v-model="menu1"
                     :close-on-content-click="false"
@@ -138,7 +139,7 @@
                         :items="[]"
                         readonly>
                         <template #prepend-inner>
-                          <span class="prepend-inner">開始日期：</span>
+                          <span class="prepend-inner">生產日期：</span>
                         </template>
                       </v-select>
                     </template>
@@ -149,7 +150,27 @@
                   </v-menu>
                 </v-col>
 
-                <v-col cols="12" md>
+                <v-col cols="12" md="3">
+                  <v-select
+                    :items="['雞', '鴨', '魚']"
+                    placeholder="請選擇">
+                    <template #prepend-inner>
+                      <span class="prepend-inner">畜禽舍：</span>
+                    </template>
+                  </v-select>
+                </v-col>
+
+                <v-col cols="12" md="3">
+                  <v-select
+                    :items="['雞', '鴨', '魚']"
+                    placeholder="請選擇">
+                    <template #prepend-inner>
+                      <span class="prepend-inner">財務歸屬：</span>
+                    </template>
+                  </v-select>
+                </v-col>
+
+                <v-col cols="12" md="3">
                   <v-menu
                     v-model="menu2"
                     :close-on-content-click="false"
@@ -164,8 +185,7 @@
                         :items="[]"
                         readonly>
                         <template #prepend-inner>
-                          <span class="prepend-inner">結束
-                            日期：</span>
+                          <span class="prepend-inner">取得日期：</span>
                         </template>
                       </v-select>
                     </template>
@@ -175,44 +195,55 @@
                     ></v-date-picker>
                   </v-menu>
                 </v-col>
+              </v-row>
+
+              <v-row>
                 <v-col cols="12" md="3">
+                <v-text-field
+                  model-value=" "
+                  suffix="元">
+                    <template #prepend-inner>
+                      <span class="prepend-inner">單價：</span>
+                    </template>
+                  </v-text-field>
 
                 </v-col>
-                <v-col cols="12" md="3">
 
+                <v-col cols="12" md="3">
+                  <v-select
+                    :items="['雞', '鴨', '魚']"
+                    placeholder="請選擇">
+                    <template #prepend-inner>
+                      <span class="prepend-inner">來源：</span>
+                    </template>
+                  </v-select>
+                </v-col>
+              </v-row>
+
+              <v-row>
+                <v-col>
+                  <v-textarea>
+                    <template #prepend-inner>
+                      <span class="prepend-inner">備註：</span>
+                    </template>
+                  </v-textarea>
                 </v-col>
               </v-row>
             </v-container>
           </v-form>
 
           <v-card-actions class="pa-5 bg-grey-lighten-3">
-              <v-btn class="text-v-btn font-weight-medium bg-grey-darken-1 mr-2" type="submit">查詢</v-btn>
+              <v-btn class="text-v-btn font-weight-medium bg-grey-darken-1 mr-2" type="submit">確定</v-btn>
               <v-btn class="text-v-btn font-weight-medium bg-grey-darken-1" @click="handleReset">取消</v-btn>
           </v-card-actions>
         </v-card>
-
-  <v-row>
-    <MySelects
-      v-model="selectedValue"
-      :items="['SelectsA', 'SelectsB', 'SelectsC']"
-      label="Selects"/>
-  </v-row>
-  <v-row>
-    <p>父元件知道選到：{{ selectedValue }}</p>
-  </v-row>
-
-
       </v-container>
     </v-main>
   </v-app>
 </template>
 
 <script setup>
-import MySelects from './components/MySelects.vue'
-
 import { ref, watch } from 'vue'
-
-const selectedValue = ref(null) // 這裡必須定義
 
 const items = [
   { title: 'Foo', value: 'foo' },
@@ -292,5 +323,4 @@ html, body, #app, #inspire {
 .text-v-btn {
   font-size: 15px !important;
 }
-
 </style>
